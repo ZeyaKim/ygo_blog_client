@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Hello, Stateless Widget!',
+          'Deploy Test!',
           style: TextStyle(fontSize: 24), // 텍스트 스타일 설정
         ),
       ),
