@@ -22,7 +22,7 @@ jobs:
         flutter build web  # Flutter 웹 앱 빌드
 
     - name: Deploy to Firebase
-      uses: FirebaseExtended/action-hosting-deploy@v0
+      uses: FirebaseExtended/action-hosting-deploy@v0.7.1
       with:
         args: deploy --only hosting
       env:
