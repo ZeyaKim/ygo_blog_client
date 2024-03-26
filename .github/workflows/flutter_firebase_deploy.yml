@@ -13,11 +13,13 @@ jobs:
     - uses: actions/checkout@v2  # 코드 체크아웃
 
     - name: Set up Flutter
-      uses: subosito/flutter-action@v1
+      uses: subosito/flutter-action@v2
       with:
         flutter-version: '3.16.0'
+        channel: 'stable'
     - name: Build Web
       run: |
+        flutter --version
         flutter pub get
         flutter build web  # Flutter 웹 앱 빌드
 
