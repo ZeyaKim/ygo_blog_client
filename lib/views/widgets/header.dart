@@ -6,32 +6,41 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20), // 헤더의 패딩 설정
+      height: 80,
+      width: double.infinity,
+      alignment: Alignment.center,
+      padding: const EdgeInsets.all(10), // 헤더의 패딩 설정
       color: Colors.blue, // 헤더의 배경색 설정
-      child: Row( // 수평 배치를 위한 Row 위젯 사용
-        mainAxisAlignment: MainAxisAlignment.start, // 수평 방향으로 시작점에 배치
-        children: [
-          const Text('Dummy', style: TextStyle(fontSize: 20, color: Colors.white)), // Dummy 텍스트
-          const Text('Title', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold)), // 타이틀 텍스트
-          Row(
-  mainAxisAlignment: MainAxisAlignment.spaceAround, // 항목들 사이에 공간을 균등하게 배분
-  children: [
-    InkWell(
-      onTap: () {
-        // 첫 번째 항목 클릭 시 동작
-      },
-      child: const Text('Home'),
-    ),
-    InkWell(
-      onTap: () {
-        // 두 번째 항목 클릭 시 동작
-      },
-      child: const Text('About'),
-    ),
-    // 여기에 더 많은 항목 추가
-  ],
-)
-        ],
+      child: SizedBox(
+        width: 1000, // SizedBox의 최대 너비
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // 항목들을 양쪽 끝으로 정렬
+          children: [
+            Row( // 중앙 네비게이션 항목
+              children: [
+                const Icon(Icons.flutter_dash, size: 40, color: Colors.white), // Flutter Dash 아이콘
+                const SizedBox(width: 10), // 아이콘과 타이틀 사이의 간격
+                const Text('Title', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.normal)), // 타이틀 텍스트
+                const SizedBox(width: 30), // 항목 사이의 간격
+                InkWell(
+                  onTap: () {
+                    // 'Home' 클릭 시 수행할 동작
+                  },
+                  child: const Text('Home', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.normal)), // Home 텍스트
+                ),
+                const SizedBox(width: 20), // 항목 사이의 간격
+                InkWell(
+                  onTap: () {
+                    // 'About' 클릭 시 수행할 동작
+                  },
+                  child: const Text('About', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.normal)), // About 텍스트
+                ),
+                // 여기에 더 많은 네비게이션 항목 추가 가능
+              ],
+            ),
+            const Text('Login', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.normal)), // 오른쪽 끝의 로그인 텍스트
+          ],
+        ),
       ),
     );
   }
