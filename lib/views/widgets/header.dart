@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'account_widget.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -38,7 +39,7 @@ class Header extends StatelessWidget {
                 // 여기에 더 많은 네비게이션 항목 추가 가능
               ],
             ),
-            const Text('Login', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.normal)), // 오른쪽 끝의 로그인 텍스트
+            const AccountWidget(), // 오른쪽 계정 관련 항목
           ],
         ),
       ),
