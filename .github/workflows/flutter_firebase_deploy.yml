@@ -26,6 +26,11 @@ jobs:
     - name: Deploy to Firebase
       uses: FirebaseExtended/action-hosting-deploy@v0.7.1
       with:
-        args: deploy --only hosting
+        projectId: ygo-blog-client  # 여기에 Firebase 프로젝트 ID를 입력하세요.
+        firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}  # GitHub Secrets에서 설정한 이름을 사용하세요.
+        expires: 7d  # 선택 사항: 배포가 만료되는 시간입니다.
+        entryPoint: .  # 선택 사항: Firebase 프로젝트의 루트 디렉토리입니다.
+        firebaseToolsVersion: latest  # 선택 사항: 사용할 Firebase Tools의 버전입니다.
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # Firebase 토큰
+
