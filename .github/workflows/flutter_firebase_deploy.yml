@@ -1,0 +1,31 @@
+name: Deploy to Firebase Hosting
+
+on:
+  pull_request_target:
+    branches:
+      - master  # main 브랜치로의 push에 반응하도록 설정
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest  # 가장 최신의 Ubuntu 버전에서 실행
+
+    steps:
+    - uses: actions/checkout@v2  # 코드 체크아웃
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.16.0'
+        channel: 'stable'
+    - name: Build Web
+      run: |
+        flutter --version
+        flutter pub get
+        flutter build web  # Flutter 웹 앱 빌드
+
+    - name: Deploy to Firebase
+      uses: FirebaseExtended/action-hosting-deploy@v0.7.1
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # Firebase 토큰

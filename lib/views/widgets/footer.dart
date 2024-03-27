@@ -6,6 +6,34 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.black,
+      child: const Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '© 2024 All rights reserved',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              ' | ',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              'Privacy Policy',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
